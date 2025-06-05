@@ -16,23 +16,23 @@ const portfolioHighlights = [
     {
         id: 2,
         category: "Web Application",
-        title: "Fitness Tracker App",
-        description: "Track workouts, set goals, and stay motivated with this sleek mobile app.",
-        imageUrl: "https://placehold.co/600x400/10B981/FFFFFF?text=Fitness+App",
+        title: "More Projects Coming Soon!",
+        description: "More Projects Coming Soon!.",
+        imageUrl: "https://placehold.co/600x400/10B981/FFFFFF?text=More Projects Coming Soon!",
     },
     {
         id: 3,
         category: "UI/UX Design",
-        title: "SaaS Dashboard Redesign",
-        description: "Revamped user interface for a complex SaaS product, improving usability.",
-        imageUrl: "https://placehold.co/600x400/F59E0B/FFFFFF?text=SaaS+Dashboard",
+        title: "More Projects Coming Soon!",
+        description: "More Projects Coming Soon!.",
+        imageUrl: "https://placehold.co/600x400/F59E0B/FFFFFF?text=More Projects Coming Soon!",
     },
     {
         id: 4,
         category: "Branding",
-        title: "Startup Brand Identity",
-        description: "Complete branding package including logo, guidelines, and marketing materials.",
-        imageUrl: "https://placehold.co/600x400/EC4899/FFFFFF?text=Brand+Identity",
+        title: "More Projects Coming Soon!",
+        description: "More Projects Coming Soon!.",
+        imageUrl: "https://placehold.co/600x400/EC4899/FFFFFF?text=More Projects Coming Soon!",
     },
 ];
 
@@ -68,19 +68,21 @@ export default function PortfolioPage() {
     }, []);
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-blue-50 dark:from-slate-900 to-indigo-100 dark:to-slate-800 flex flex-col text-slate-800 dark:text-slate-200">
+        <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 flex flex-col text-white dark">
             {/* Hero Section */}
             <section className="flex flex-1 flex-col md:flex-row items-center justify-between px-4 md:px-12 py-16 md:py-24 gap-8 overflow-hidden">
                 <div className="flex-1 md:max-w-2xl text-center md:text-left" data-aos="fade-right" data-aos-delay="100">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-indigo-700 dark:text-indigo-400 mb-6">
-                        OUR PROJECTS
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+                            OUR <br className="md:hidden" />PROJECT
+                        </span>
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">
+                    <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
                         Discover a collection of our finest work, showcasing innovative solutions and creative designs across various domains.
                     </p>
                     <a
                         href="#project-gallery" // Link to project gallery section
-                        className="inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105"
+                        className="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg shadow-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 text-center"
                         data-aos="fade-up"
                         data-aos-delay="300"
                     >
@@ -97,13 +99,13 @@ export default function PortfolioPage() {
             </section>
 
             {/* Project Highlights Marquee Section */}
-            <section className="w-full py-12 md:py-16 bg-slate-100 dark:bg-slate-900/70">
+            <section className="w-full py-16 md:py-20 bg-slate-800/50 dark:bg-black/30 backdrop-blur-sm">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-10 md:mb-12" data-aos="fade-down">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white">
                             Project Highlights
                         </h2>
-                        <p className="text-md text-slate-600 dark:text-slate-400 mt-2 max-w-2xl mx-auto">
+                        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
                             การดูแบบรวดเร็วของโครงการที่น่าตื่นเต้นบางส่วนที่เราส่งมอบ.
                         </p>
                     </div>
@@ -134,10 +136,10 @@ export default function PortfolioPage() {
             <section id="project-gallery" className="py-16 md:py-24 px-4 md:px-12">
                 <div className="container mx-auto">
                     <div className="text-center mb-12 md:mb-16" data-aos="fade-up">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-indigo-700 dark:text-indigo-400">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-6">
                             Our Full Portfolio
                         </h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 mt-3 max-w-xl mx-auto">
+                        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
                             Explore our diverse range of projects in detail. Click on any project to learn more about our process and the results.
                         </p>
                     </div>
@@ -163,7 +165,7 @@ export default function PortfolioPage() {
             </section>
 
             {/* Call to Action Section */}
-            <section className="py-16 md:py-24 bg-indigo-700 dark:bg-indigo-800 text-white">
+            <section className="py-16 md:py-24 bg-gradient-to-r from-purple-700 via-pink-600 to-red-600 text-white">
                 <div className="container mx-auto px-4 text-center" data-aos="zoom-in" data-aos-delay="100">
                     <h3 className="text-3xl sm:text-4xl font-bold mb-6">
                         Have a Project in Mind?
