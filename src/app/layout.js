@@ -3,7 +3,7 @@ import './globals.css';
 import Navbar from './components/ui/Navbar'; // Adjust the path as necessary
 
 export const metadata = {
-  title: 'ชื่อเว็บไซต์ของคุณ',
+  title: 'AIBATTLELAB',
   description: 'คำอธิบายเว็บไซต์',
 };
 
