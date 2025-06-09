@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const notoSans = Noto_Sans({
-  subsets: ["thai"],
+  subsets: ["latin"],
   weight: ["400", "500", "700"],
   display: "swap",
   variable: "--font-noto",
