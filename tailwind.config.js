@@ -1,24 +1,16 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class', // หรือ 'media'
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Noto Sans"', 'sans-serif'],
-      },
-      // คุณสามารถเพิ่ม theme อื่นๆ ที่นี่ได้
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        sans: ["'Noto Sans'", "sans-serif"], // ✅ เพิ่ม Custom Font
       },
     },
   },
+  darkMode: "class", // ✅ รองรับ Dark Mode แบบ manual toggle
   plugins: [],
 };

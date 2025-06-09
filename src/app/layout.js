@@ -1,27 +1,18 @@
-// app/layout.jsx
-import './globals.css';
-import Navbar from './components/ui/Navbar'; // Adjust the path as necessary
+// ✅ ไม่มี use client
+import "./globals.css";
+import NavbarClient from "./components/layout/NavbarClient";
 
 export const metadata = {
-  title: 'AIBATTLELAB',
-  description: 'คำอธิบายเว็บไซต์',
+  title: "AIBATTLELAB",
+  description: "คำอธิบายเว็บไซต์",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="th"> 
-      <head>
-        <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)" />
-        <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossOrigin="true" />
-        <link
-          href="[https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap](https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap)"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-sans">
-        <Navbar />
+    <html lang="th" suppressHydrationWarning>
+      <body className="font-sans bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
+        <NavbarClient />
         <main>{children}</main>
-
       </body>
     </html>
   );

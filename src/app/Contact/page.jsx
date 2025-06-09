@@ -1,10 +1,8 @@
-// Assuming this file is app/contact/page.jsx or similar
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Define feature items for the marquee related to Contact Us
 const contactMarqueeFeatures = [
   {
     id: 1,
@@ -35,7 +33,7 @@ const duplicatedMarqueeFeatures = [...contactMarqueeFeatures, ...contactMarqueeF
 const FeatureCard = ({ title, description }) => (
   <div
     className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out min-w-[300px] sm:min-w-[320px] flex-shrink-0 group cursor-default"
-    // Removed AOS from individual cards as it can be jittery in a fast marquee
+  // Removed AOS from individual cards as it can be jittery in a fast marquee
   >
     <h4 className="text-xl font-semibold text-blue-700 dark:text-sky-400 mb-3 group-hover:text-blue-800 dark:group-hover:text-sky-300 transition-colors">
       {title}
@@ -54,6 +52,12 @@ export default function ContactPage() {
       once: true, // AOS animations will only happen once per element
       offset: 50,
     });
+  }, []);
+
+  const [year, setYear] = useState("");
+
+  useEffect(() => {
+    setYear(new Date().getFullYear().toString());
   }, []);
 
   return (
@@ -84,10 +88,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 md:mb-12" data-aos="fade-down">
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              How We Support You
+              เราสนับสนุนคุณอย่างไร
             </h2>
-            <p className="text-md text-slate-600 dark:text-slate-400 mt-2 max-w-2xl mx-auto">
-              We're here to help and answer any question you might have. Explore the various ways you can reach our team.
+            <p className="text-md text-white dark:text-slate-400 mt-2 max-w-2xl mx-auto">
+              เราพร้อมช่วยเหลือและตอบคำถามใดๆ ที่คุณอาจมี สำรวจวิธีต่างๆ ที่คุณสามารถติดต่อทีมงานของเราได้
             </p>
           </div>
 
@@ -99,7 +103,7 @@ export default function ContactPage() {
             {/* Gradient Fades for edges */}
             <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-slate-100 dark:from-slate-900/80 to-transparent z-10 pointer-events-none rounded-l-2xl"></div>
             <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-slate-100 dark:from-slate-900/80 to-transparent z-10 pointer-events-none rounded-r-2xl"></div>
-            
+
             <div className="relative w-full overflow-x-hidden py-4">
               <div
                 className="flex gap-6 sm:gap-8 animate-marqueeLeft whitespace-nowrap"
@@ -126,7 +130,7 @@ export default function ContactPage() {
             data-aos-delay="100"
           >
             <img
-              src="https://cdn.pixabay.com/photo/2018/02/08/10/22/desk-3139127_1280.jpg" // Image of a friendly support person or team
+              src="https://cdn.pixabay.com/photo/2018/02/08/10/22/desk-3139127_1280.jpg"
               alt="Team working together for customer support"
               className="rounded-xl shadow-2xl w-full max-w-lg object-cover aspect-video"
             />
@@ -136,16 +140,17 @@ export default function ContactPage() {
             data-aos="fade-left"
             data-aos-delay="200"
           >
-            <h3 className="text-3xl sm:text-4xl font-bold text-blue-700 dark:text-sky-400 mb-6">
-              Get in Touch Directly
+            <h3 className="text-3xl sm:text-4xl font-bold text-white">
+              ติดต่อโดยตรง
             </h3>
-            <p className="text-slate-700 dark:text-slate-300 text-lg mb-6 leading-relaxed">
-              We are committed to providing excellent customer service. Whether you have a question about our services, need technical support, or want to discuss a potential collaboration, our team is ready to assist you.
+            <p className="text-slate-300 text-lg mb-4 leading-relaxed">
+              เรามุ่งมั่นที่จะมอบบริการลูกค้าที่ยอดเยี่ยม ไม่ว่าคุณจะมีคำถามเกี่ยวกับบริการของเรา ต้องการการสนับสนุนด้านเทคนิค หรือต้องการหารือเกี่ยวกับความร่วมมือที่อาจเกิดขึ้น ทีมงานของเราพร้อมให้ความช่วยเหลือคุณ
+              .
             </p>
-            <ul className="space-y-3 text-slate-700 dark:text-slate-300">
+            <ul className="space-y-3 text-slate-300 dark:text-slate-300">
               <li className="flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 dark:text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                <span>Email: contact@companyapp.com</span>
+                <span>Email: kritdaowaset@gmail.com</span>
               </li>
               <li className="flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 dark:text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.308 1.154a11.06 11.06 0 006.086 6.086l1.154-2.308a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
@@ -168,23 +173,16 @@ export default function ContactPage() {
           data-aos-delay="100"
         >
           <h3 className="text-3xl sm:text-4xl font-bold mb-6">
-            Ready to Connect?
+            พร้อมที่จะเชื่อมต่อกันแล้วหรือยัง?
           </h3>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Fill out our contact form or reach out directly via email or phone. We look forward to connecting with you and helping your business grow.
+          <p className="text-slate-300 text-lg mb-4 leading-relaxed">
+            กรอกแบบฟอร์มติดต่อของเรา หรือติดต่อเราโดยตรงผ่านทางอีเมลหรือโทรศัพท์ เราหวังว่าจะได้เชื่อมต่อกับคุณและช่วยให้ธุรกิจของคุณเติบโต.
           </p>
-          <a
-            href="/contact" // Assuming you have a dedicated contact form page
-            className="inline-block px-10 py-4 bg-white text-blue-700 dark:text-sky-700 font-semibold rounded-lg shadow-lg hover:bg-slate-100 transition-transform transform hover:scale-105 text-lg"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Send Us a Message
-          </a>
+ 
         </div>
       </section>
       <footer className="w-full py-8 px-4 md:px-12 bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 text-center text-sm">
-        &copy; {new Date().getFullYear()} AIBATTLELAB. All rights reserved.
+        &copy; {year || "2025"} AIBATTLELAB. All rights reserved.
       </footer>
       <style jsx global>{`
         @keyframes marqueeLeft {

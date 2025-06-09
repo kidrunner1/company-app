@@ -1,14 +1,12 @@
-// Assuming this file is app/HomePage/page.jsx or a similar route component
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css";
 
-// Define feature items for the AIBATTLELAB marquee
 const labFeatures = [
   {
     id: 1,
-    icon: "🔬", // Example: Using an emoji as a simple icon
+    icon: "🔬",
     title: "Cutting-Edge AI Models",
     description: "Experiment with and deploy the latest in AI and machine learning.",
     imageUrl: "https://placehold.co/600x400/7C3AED/FFFFFF?text=AI+Models", // Placeholder
@@ -44,13 +42,8 @@ const LabFeatureCard = ({ icon, title, description, imageUrl }) => (
   <div
     className="bg-white dark:bg-slate-800/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out min-w-[300px] sm:min-w-[340px] flex-shrink-0 group cursor-default overflow-hidden text-center"
   >
-    {/* Optional: Image instead of icon, or icon overlaying image */}
     <img src={imageUrl} alt={title} className="w-full h-40 object-cover rounded-lg mb-4 transition-transform duration-300 group-hover:scale-105" />
-    {/* Or use the icon directly:
-    <div className="text-5xl mb-3 text-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-200">
-      {icon}
-    </div>
-    */}
+
     <h4 className="text-xl font-semibold text-slate-800 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
       {title}
     </h4>
@@ -62,6 +55,12 @@ const LabFeatureCard = ({ icon, title, description, imageUrl }) => (
 
 
 export default function HomePage() {
+  const [year, setYear] = useState("");
+
+  useEffect(() => {
+    setYear(new Date().getFullYear().toString());
+  }, []);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -69,6 +68,7 @@ export default function HomePage() {
       offset: 50,
     });
   }, []);
+
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 flex flex-col text-white dark"> {/* Defaulting to dark theme based on AIBATTLELAB style */}
@@ -81,7 +81,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-            Unleash the power of Artificial Intelligence. Compete, learn, and innovate in the ultimate AI arena.
+            ปลดปล่อยพลังของปัญญาประดิษฐ์ แข่งขัน เรียนรู้ และสร้างสรรค์นวัตกรรมในสนามปัญญาประดิษฐ์ขั้นสูงสุด.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a
@@ -90,15 +90,7 @@ export default function HomePage() {
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              Explore Projects
-            </a>
-            <a
-              // Link to contact page
-              className="inline-block px-8 py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg shadow-md hover:bg-white/30 transition-all duration-300 transform hover:scale-105 text-center"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              Join Us
+              เยี่ยมชมผลงานของเรา   
             </a>
           </div>
         </div>
@@ -116,10 +108,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16" data-aos="fade-down">
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              What's Inside the Lab?
+              โปรเจคของเรามีอะไรบ้าง?
             </h2>
             <p className="text-md text-slate-400 mt-3 max-w-2xl mx-auto">
-              Discover the core components that make AIBATTLELAB the premier destination for AI enthusiasts.
+              ค้นพบส่วนประกอบหลักที่ทำให้ AIBATTLELAB เป็นจุดหมายปลายทางอันดับหนึ่งสำหรับผู้ที่ชื่นชอบ AI.
             </p>
           </div>
           <div
@@ -203,7 +195,7 @@ export default function HomePage() {
       </section>
 
       <footer className="w-full py-8 px-4 md:px-12 bg-slate-900 text-slate-400 text-center text-sm">
-        &copy; {new Date().getFullYear()} AIBATTLELAB. All rights reserved.
+        &copy; {year || "2025"} AIBATTLELAB. All rights reserved.
       </footer>
 
       {/* Marquee and Float animation keyframes */}

@@ -9,10 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@motionone/react": "^10.16.4",
+    "@react-three/drei": "^10.1.2",
+    "@react-three/fiber": "^9.0.0-alpha.8",
     "aos": "^2.3.4",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.16.0",
+    "motion": "^12.16.0",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-globe.gl": "^2.33.2",
+    "tailwind-merge": "^3.3.0",
+    "three": "^0.177.0",
+    "three-globe": "^2.42.11",
+    "three-stdlib": "^2.36.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

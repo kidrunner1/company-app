@@ -1,10 +1,8 @@
-// Assuming this file is app/Portfolio/page.jsx or similar
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Define project items for the marquee
 const portfolioHighlights = [
     {
         id: 1,
@@ -58,13 +56,20 @@ const ProjectHighlightCard = ({ category, title, description, imageUrl }) => (
 );
 
 export default function PortfolioPage() {
+
+    const [year, setYear] = useState("");
+
+    useEffect(() => {
+        setYear(new Date().getFullYear().toString());
+    }, []);
+
     useEffect(() => {
         AOS.init({
             duration: 1000,
-            once: true, // Animations will only run once
+            once: true,
             offset: 50,
         });
-        // No need for AOS.refresh() in a simple useEffect like this if 'once' is true
+
     }, []);
 
     return (
@@ -78,7 +83,7 @@ export default function PortfolioPage() {
                         </span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
-                        Discover a collection of our finest work, showcasing innovative solutions and creative designs across various domains.
+                        ค้นพบคอลเลกชั่นผลงานที่ดีที่สุดของเราซึ่งนำเสนอโซลูชันที่สร้างสรรค์และการออกแบบที่สร้างสรรค์ในหลากหลายโดเมน.
                     </p>
                     <a
                         href="#project-gallery" // Link to project gallery section
@@ -137,10 +142,10 @@ export default function PortfolioPage() {
                 <div className="container mx-auto">
                     <div className="text-center mb-12 md:mb-16" data-aos="fade-up">
                         <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                            Our Full Portfolio
+                            ผลงานทั้งหมดของเรา
                         </h2>
                         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
-                            Explore our diverse range of projects in detail. Click on any project to learn more about our process and the results.
+                            สำรวจโครงการที่หลากหลายของเราโดยละเอียด คลิกที่โครงการใด ๆ เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับกระบวนการและผลลัพธ์ของเรา.
                         </p>
                     </div>
                     {/* Placeholder for Project Grid/List */}
@@ -168,24 +173,17 @@ export default function PortfolioPage() {
             <section className="py-16 md:py-24 bg-gradient-to-r from-purple-700 via-pink-600 to-red-600 text-white">
                 <div className="container mx-auto px-4 text-center" data-aos="zoom-in" data-aos-delay="100">
                     <h3 className="text-3xl sm:text-4xl font-bold mb-6">
-                        Have a Project in Mind?
+                        มีไอเดียอะไรหรือไม่?
                     </h3>
                     <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
-                        Let's discuss how we can bring your vision to life. We're excited to collaborate on innovative and impactful projects.
+                        มาหารือกันว่าเราจะทำให้วิสัยทัศน์ของคุณเป็นจริงได้อย่างไร เรายินดีเป็นอย่างยิ่งที่จะร่วมมือกันในโครงการที่สร้างสรรค์และมีผลกระทบ.
                     </p>
-                    <a
-                        href="/contact" // Link to your contact page
-                        className="inline-block px-10 py-4 bg-white text-indigo-700 font-semibold rounded-lg shadow-lg hover:bg-slate-100 transition-all duration-300 transform hover:scale-105 text-lg"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                    >
-                        Get In Touch
-                    </a>
+
                 </div>
             </section>
 
             <footer className="w-full py-8 px-4 md:px-12 bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 text-center text-sm">
-                &copy; {new Date().getFullYear()} AIBATTLELAB. All rights reserved.
+                &copy; {year || "2025"} AIBATTLELAB. All rights reserved.
             </footer>
 
             {/* Marquee animation keyframes (same as Contact Page) */}
