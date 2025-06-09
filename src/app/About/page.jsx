@@ -9,28 +9,28 @@ const labFeatures = [
     icon: "🔬",
     title: "Cutting-Edge AI Models",
     description: "Experiment with and deploy the latest in AI and machine learning.",
-    imageUrl: "https://placehold.co/600x400/7C3AED/FFFFFF?text=AI+Models", // Placeholder
+    imageUrl: "https://wallpapers.com/images/hd/coding-background-9izlympnd0ovmpli.jpg", // Placeholder
   },
   {
     id: 2,
     icon: "⚔️",
     title: "Competitive Challenges",
     description: "Test your skills against others in exciting AI-driven competitions.",
-    imageUrl: "https://placehold.co/600x400/DB2777/FFFFFF?text=AI+Challenges", // Placeholder
+    imageUrl: "https://th.bing.com/th/id/R.c59cb4d6dda0d97d72600fc66821bbcd?rik=p%2bqtqo2eNb0jtA&riu=http%3a%2f%2fthestatetimes.com%2fwp-content%2fuploads%2f2018%2f02%2finfotech.jpg&ehk=FF2w7obphoNFJAmHb0IyqQuqdiAVkB1haRtebXosqj8%3d&risl=&pid=ImgRaw&r=0", // Placeholder
   },
   {
     id: 3,
     icon: "💡",
     title: "Innovative Research",
     description: "Contribute to and access groundbreaking research in artificial intelligence.",
-    imageUrl: "https://placehold.co/600x400/F59E0B/FFFFFF?text=AI+Research", // Placeholder
+    imageUrl: "https://img.freepik.com/premium-photo/technology_1103365-8843.jpg?w=2000", // Placeholder
   },
   {
     id: 4,
     icon: "🤝",
     title: "Collaborative Community",
     description: "Connect with fellow AI enthusiasts, researchers, and developers.",
-    imageUrl: "https://placehold.co/600x400/10B981/FFFFFF?text=AI+Community", // Placeholder
+    imageUrl: "https://cdn.pixabay.com/photo/2023/05/15/12/17/technology-7994887_1280.jpg", // Placeholder
   },
 ];
 
@@ -56,11 +56,15 @@ const LabFeatureCard = ({ icon, title, description, imageUrl }) => (
 
 export default function HomePage() {
   const [year, setYear] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0); // ✅ กำหนดภาพที่ถูกเลือก
 
   useEffect(() => {
     setYear(new Date().getFullYear().toString());
   }, []);
 
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % labFeatures.length);
+  };
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -90,7 +94,7 @@ export default function HomePage() {
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              เยี่ยมชมผลงานของเรา   
+              เยี่ยมชมผลงานของเรา
             </a>
           </div>
         </div>
@@ -103,40 +107,59 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Marquee Section */}
       <section className="w-full py-16 md:py-20 bg-slate-800/50 dark:bg-black/30 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16" data-aos="fade-down">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              โปรเจคของเรามีอะไรบ้าง?
-            </h2>
-            <p className="text-md text-slate-400 mt-3 max-w-2xl mx-auto">
-              ค้นพบส่วนประกอบหลักที่ทำให้ AIBATTLELAB เป็นจุดหมายปลายทางอันดับหนึ่งสำหรับผู้ที่ชื่นชอบ AI.
-            </p>
-          </div>
-          <div
-            className="relative w-full max-w-7xl mx-auto bg-slate-700/30 dark:bg-slate-900/50 backdrop-blur-md rounded-2xl shadow-xl p-3 sm:p-4 overflow-hidden"
-            data-aos="zoom-in-up"
-          >
-            <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-slate-800/80 dark:from-black/50 to-transparent z-10 pointer-events-none rounded-l-2xl"></div>
-            <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-slate-800/80 dark:from-black/50 to-transparent z-10 pointer-events-none rounded-r-2xl"></div>
-            <div className="relative w-full overflow-x-hidden py-4">
-              <div className="flex gap-6 sm:gap-8 animate-marqueeLeft whitespace-nowrap">
-                {duplicatedLabFeatures.map((feature, index) => (
-                  <LabFeatureCard
-                    key={`${feature.id}-${index}`}
-                    icon={feature.icon}
-                    title={feature.title}
-                    description={feature.description}
-                    imageUrl={feature.imageUrl}
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4" data-aos="fade-down">
+            สิ่งที่พวกเราสนใจมีอะไรบ้าง?
+          </h2>
+          <p className="text-md text-slate-400 mb-12 max-w-2xl mx-auto" data-aos="fade-down" data-aos-delay="100">
+            สำรวจโครงการเด่นของเราในรูปแบบแกลเลอรีที่มีชีวิตชีวา
+          </p>
+
+          <div className="relative flex justify-center items-center h-[300px] sm:h-[400px] md:h-[500px]">
+            {labFeatures.map((feature, index) => {
+              const isActive = index === activeIndex;
+              const isPrev = index === (activeIndex - 1 + labFeatures.length) % labFeatures.length;
+              const isNext = index === (activeIndex + 1) % labFeatures.length;
+
+              let className = "z-10 scale-75 opacity-0 pointer-events-none";
+              let onClickHandler = () => { };
+
+              if (isActive) {
+                className = "z-30 scale-110";
+                onClickHandler = () => { }; // ไม่ทำอะไร
+              } else if (isPrev) {
+                className = "z-20 translate-x-[-60%] scale-90 opacity-60";
+                onClickHandler = () =>
+                  setActiveIndex((prev) => (prev - 1 + labFeatures.length) % labFeatures.length);
+              } else if (isNext) {
+                className = "z-20 translate-x-[60%] scale-90 opacity-60";
+                onClickHandler = () =>
+                  setActiveIndex((prev) => (prev + 1) % labFeatures.length);
+              }
+
+              return (
+                <div
+                  key={feature.id}
+                  onClick={onClickHandler}
+                  className={`absolute cursor-pointer transition-all duration-500 ease-in-out rounded-xl overflow-hidden shadow-xl ${className}`}
+                  style={{
+                    width: "650px",
+                    height: "400px",
+                  }}
+                >
+                  <img
+                    src={feature.imageUrl}
+                    alt={`Feature ${feature.id}`}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
-                ))}
-              </div>
-            </div>
+                </div>
+              );
+            })}
           </div>
+
         </div>
       </section>
-
 
       {/* About AIBATTLELAB Section */}
       <section className="py-16 md:py-24 px-4 md:px-12">

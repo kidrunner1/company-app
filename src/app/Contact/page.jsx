@@ -178,7 +178,39 @@ export default function ContactPage() {
           <p className="text-slate-300 text-lg mb-4 leading-relaxed">
             กรอกแบบฟอร์มติดต่อของเรา หรือติดต่อเราโดยตรงผ่านทางอีเมลหรือโทรศัพท์ เราหวังว่าจะได้เชื่อมต่อกับคุณและช่วยให้ธุรกิจของคุณเติบโต.
           </p>
- 
+          <form
+            action="https://formspree.io/f/xvgrkarl" // 👉 เปลี่ยนตาม Form ID ที่คุณได้
+            method="POST"
+            className="max-w-2xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="ชื่อของคุณ"
+              required
+              className="p-3 rounded-lg bg-white/90 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="อีเมลของคุณ"
+              required
+              className="p-3 rounded-lg bg-white/90 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+            />
+            <textarea
+              name="message"
+              placeholder="ข้อความของคุณ..."
+              rows={4}
+              required
+              className="sm:col-span-2 p-3 rounded-lg bg-white/90 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+            ></textarea>
+            <button
+              type="submit"
+              className="sm:col-span-2 py-3 px-6 bg-white text-purple-700 font-semibold rounded-lg hover:bg-gray-100 transition duration-300"
+            >
+              ส่งข้อความ
+            </button>
+          </form>
         </div>
       </section>
       <footer className="w-full py-8 px-4 md:px-12 bg-slate-800 dark:bg-black text-slate-300 dark:text-slate-400 text-center text-sm">

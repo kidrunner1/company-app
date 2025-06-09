@@ -25,11 +25,14 @@ export default function Home() {
 
         {/* Right: Globe */}
         <div
-          className="w-full md:w-1/2 h-[300px] sm:h-[450px] md:h-[550px] relative flex justify-center items-center "
-          data-aos="fade-right"
+          className="w-full md:w-1/2 h-[300px] sm:h-[450px] md:h-[550px] relative flex justify-center items-center transition-transform duration-1000 ease-out"
+          data-aos="fade-left"
+          data-aos-delay="300"
+          data-aos-duration="1200"
         >
           <GlobeDemo />
         </div>
+
       </section>
 
       {/* Features Section */}

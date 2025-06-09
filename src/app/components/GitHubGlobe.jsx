@@ -396,7 +396,7 @@ export function GlobeDemo() {
     ];
 
     return (
-        <div className="w-full h-[500px] md-[h-200px] relative">
+        <div className="w-full h-[500px] md-[h-200px] relative z-50">
             <div className="max-w-7xl mx-auto w-full relative z-50 h-full md:h-[40rem] px-4">
                 <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
                     <World data={sampleArcs} globeConfig={globeConfig} />
