@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@motionone/react": "^10.16.4",
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.0.0-alpha.8",
     "aos": "^2.3.4",
